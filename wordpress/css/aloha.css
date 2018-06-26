@@ -1,0 +1,78 @@
+.flex-caption .captiontext{
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/*BLOCK-WIDE-NORMAL*/
+.block-wide-normal{
+    padding: 60px 0;
+}
+
+/*НОВОСТИ И АКЦИИ*/
+.blog_carousel .postcontent {
+    padding: 20px;
+    box-shadow: 0 0 3px #eee;
+}
+
+.blog_carousel .postcontent header{margin-bottom:1.2rem}
+
+.color_body a {
+    display: block;
+    background: #f49f00;
+    color: white;
+    padding: 1rem;
+    max-width: 200px;
+    float: right;
+    margin: 1rem -20px -20px 0;
+    text-align: center;
+}
+
+.color_body a:hover{background: #444;}
+
+div.wpcf7 .ajax-loader{background-image:none;}
+
+a {outline:none !important;}
+
+/*STAFF*/
+.staff_item .kt-staff-header {
+    padding: 10px 15px 0;
+    text-align: center;
+}
+
+.staff .kt-staff-header .kt-staff-title, .staff_item .kt-staff-header .kt-staff-title {
+    font-size: 13px;
+    text-transform: none;
+    font-weight: 400;
+    color: #555;
+    padding: 5px 0 0;
+}
+
+/*.staff_item .staff-entry-content {
+ display:none;
+}*/
+
+.sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item .sow-carousel-thumbnail {
+    line-height: 0;
+    width: 270px;
+    height: 270px;
+}
+.sow-carousel-thumbnail a{
+    background-size: cover;
+    height: 100%;
+}
+.staff_item .kt-staff-header h3,
+.sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item h3{
+    font-family: Oswald;
+    line-height: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.wpcf7 input.wpcf7-submit {
+    margin-top: -10px;
+}
+
+div.wpcf7 .ajax-loader{background-image:none;}
+
+#nav-main ul.sf-menu ul li.current-menu-item a,.gallery_item:hover .kad_caption{background:0 0}.promo li .img,.slides{overflow:hidden}.btn,.procedure li{box-sizing:border-box}#kadbreadcrumbs,.block-title,.btn,.c-phone,.certificate,.footercol1 .block-title,.massage-gift,.nav-tabs,.partners,.procedure li,.promo li,.promo-img,.pum-content h4,.service-list .block-title,.service-list ul,.team{text-align:center}.btn,.footer-widget h4,.footermenu,.promo h4,.sf-dropdown-menu span,.wpcf7 input.wpcf7-submit{text-transform:uppercase}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:400;src:local('Droid Serif'),local('DroidSerif-Regular'),url(/fonts/droid-serif.woff) format('woff'),url(/fonts/droid-serif.ttf) format('truetype')}@font-face{font-family:'Droid Serif Italic';font-style:italic;font-weight:400;src:local('Droid Serif Italic'),local('DroidSerif-Italic'),url(fonts/droid-serif-italic.woff) format('woff'),url(/fonts/droid-serif-italic.ttf) format('truetype')}@font-face{font-family:'Droid Serif Bold Italic';font-style:italic;font-weight:700;src:local('Droid Serif Bold Italic'),local('DroidSerif-Bold Italic'),url(/fonts/droid-serif-bold-italic.woff) format('woff'),url(/fonts/droid-serif-bold-italic.ttf) format('truetype')}#kadbreadcrumbs{float:none;clear:right;margin-top:0;display:block}.caption h4{font-family:Open Sans Condensed;font-weight:700}#menu-m-main span{border-bottom:3px solid transparent;padding-bottom:5px}.kad-primary-nav ul.sf-menu>li>a{padding:0 10px!important}#menu-m-main li:hover span{border-bottom:3px solid #f4ba51}.sf-dropdown>a:after{right:0;font-size:.8em}.sf-dropdown-menu span{border-bottom:0 solid transparent!important}.p-main,.team{background:url(/img/border-color.png) center top 0 repeat-x,url(/img/border-color.png) center bottom 0 repeat-x #fff}.p-main{margin-top:-20px}.service-list{background-image:url(/img/bg-grey.jpg);background-size:cover;background-position:center top}.massage li h4,.service-list .massage h4{font-family:"Roboto Condensed";line-height:16px;font-weight:600;font-size:18px}.massage li h4{font-size:14px}.massage a h4{color:#666}.massage a:hover h4{color:#f49f00}.service-list .massage a:hover h4{color:#fff}.service-list .massage h4{font-size:16px;text-transform:uppercase;min-height:2.2em;padding:0 15px}.massage span{font-family:Oswald;font-size:14px;color:#666;font-weight:700;padding-left:10px}.service-list .massage span{padding:0}.service-list .massage li{min-height:130px;margin:.5px!important;box-sizing:border-box;background:#fff}.service-list li:hover{background:#f4ba51}.nav-tabs{font-family:"Roboto Condensed"}.nav-tabs li,.nav-tabs li.active{background:0 0}.tab-content{max-width:800px;margin:10px auto;background:url(/img/bg-grey.jpg) #fff;box-shadow:0 0 3px #666;padding:30px}.nav-tabs li.active{color:#f4ba51;border-bottom:2px solid}.nav-tabs li a{font-weight:300;color:grey}.flex-active-slide::after{content:'';position:absolute;width:100%;height:100%;bottom:0;left:0;z-index:0;background-color:#000;opacity:.4}.block-title h2::after,.captiontitle::after{content:url(/img/Vector-Smart-Object-61.png);display:block}.flex-active-slide img{transform:perspective(1px) scale(1.1) translateZ(0)}.flexslider .slides img{transition:all 9s linear;width:100%}.flex-caption{top:55%;transform:translateY(-50%);z-index:1}.captiontext,.captiontitle{background:0 0!important}.captiontitle{font-weight:400;font-family:cinzel;line-height:1;font-size:50px}.flexslider .captiontext p,.s-title,.team .kad_caption p{font-family:Droid Sans Italic;font-style:italic}.captiontitle::after{margin:7px}.flexslider .captiontext p{margin:0;color:#fff;font-size:20px}body{line-height:1.42!important;text-rendering:optimizeLegibility}body.page #content .main .pageclass{padding:15px 15px 0}.block-wide{padding:60px 0}.block-title h2::after{margin:7px}.grey{background:#eee}.gold{background:#f4ba51}.block-table{display:table;width:100%}.block-table-cell{display:table-cell;vertical-align:middle}.block-wide ul{list-style:none;padding:0;margin:0;display:table;width:100%}.block-wide li{position:relative;display:inline-flex;flex-direction:column;justify-content:center;align-items:stretch}.s-title{color:#ffa400;font-size:16px}.btn{display:inline-block;min-width:170px;margin:5px;padding:10px 20px;color:#fff;background:#f4ba51}.btn:hover{background:#d55d3b;color:#fff}.btn-border{background:0 0;color:#7c8898;outline:#7c8898 solid 1px;outline-offset:-1px}.btn-border:hover{background:#7c8898;color:#fff}.pum-trigger{margin-left:0;margin-right:0}.p-menu li{width:50%;min-height:150px}.promo li{width:calc(25% - 2%);margin:1%}.procedure li{width:calc(50% - 1px)}.massage li{width:50%}.service-list .massage li{width:calc(25% - 1px)}.topclass{background:#f4ba51;border-bottom:3px solid #2b0c0f}.intro{background:url(/img/wellcome.png);background-size:cover}.promo ul{margin-top:-100px;position:relative;z-index:2}.promo li{background:url(/img/border-color.png) center bottom 0 repeat-x #fff;padding-bottom:25px;box-shadow:0 0 3px;border-bottom:2px solid #f4ba51}.promo li .img{position:relative}.promo li .img img{transition:all 4s linear;width:100%}.promo li:hover .img img{transform:perspective(1px) scale(1.1) translateZ(0)}.promo li:hover h4{color:#000}.promo li .img::after{content:"";position:absolute;top:5px;bottom:5px;right:5px;left:5px;z-index:11;box-shadow:inset 0 0 5px rgba(255,255,255,.5),0 0 5px rgba(0,0,0,.5)}.massage li,.team .kad_caption,.wpcf7-form p{position:relative}.promo h4{margin:15px 0 10px;color:#7c8898}.procedure li:hover h4,.procedure li:hover h4::after,.procedure li:hover p,.promo-img,.promo-img h4{color:#fff}.promo-img{background:url(/img/bg_subcribe_newsletter.jpg);background-size:cover}.wellcome{text-align:center;background:url(/img/flo.png) center left no-repeat,url(/img/flo.png) center right no-repeat #eee}.wellcome .block-content{max-width:570px;margin:0 auto}.procedure{width:50%}.procedure ul{display:table;width:100%;background:#eee}.procedure li{min-height:250px;margin:.5px;background:#fff}.procedure li img{width:64px;margin:0 auto}.procedure li:hover{background:#f4ba51}.procedure h4::after{content:'';display:block;width:50px;margin:15px auto 0;border-bottom:2px solid;color:#aaa}.procedure p{color:#aaa;font-style:italic}.partner-logos{display:table;width:100%}.partner-title{display:table-cell;vertical-align:middle}.partners{padding:20px;background:url(/img/border.png) center bottom 0 repeat-x,url(/img/border.png) center top 0 repeat-x #f4ba51}.partners,.partners h4{color:#fff}.certificate{max-width:570px;margin:0 auto;padding:30px;box-shadow:0 0 5px #000;background:url(/img/border-color.png) center top 0 repeat-x,url(/img/border-color.png) center bottom 0 repeat-x #f5f5f5}.certificate p{margin:20px 0}.team .kad_caption p{color:#666}.massage{display:table;list-style:none;margin:0;padding:0;width:100%}.massage li{display:inline-flex;flex-direction:column;justify-content:center;align-items:stretch}.total-procedure{text-aling:center;background:url(/img/flo.png) left center no-repeat,url(/img/flo.png) right center no-repeat}.kt_imgsplit_title::after{content:'';display:block;width:150px;border-bottom:3px solid #f4ba51;margin:10px 0 20px}.procedure-description{background:url(/img/site/bg-grey.jpg)}.procedure-description h4{color:#6e422b;margin-bottom:25px}.m-time:before{content:'продолжительность: '}.m-time:after{content:' мин.'}.m-price:before{content:'стоимость: '}.m-price:after{content:' грн'}.m-price:after,.m-price:before,.m-time:after,.m-time:before{font-family: 'Trebuchet MS',Helvetica,sans-serif;font-weight:300;font-size:12px}.massage-gift{background:url(/img/gift.png) center center;background-size:cover}.massage-gift h4::after,.pum-content h4::after{content:url(/img/Vector-Smart-Object-61.png);display:block;margin:15px}.procedure-o{background:#252525;font-size:.8em;font-style:italic;margin:0 -20px -20px!important;width:calc(100% + 40px);padding:20px;line-height:1.4}.procedure-o-img{width:168px;padding:0 15px}.gift-form{max-width:300px;margin:0 auto}input{box-shadow:0 0 0 rgba(0,0,0,.2) inset!important;-moz-box-shadow:0 0 0 rgba(0,0,0,.2) inset!important;-webkit-box-shadow:0 0 0 rgba(0,0,0,.2) inset!important;-o-box-shadow:0 0 0 rgba(0,0,0,.2) inset!important;transition:all .2s linear!important;-moz-transition:all .2s linear!important;-webkit-transition:all .2s linear!important;-o-transition:all .2s linear!important;border-radius:0!important;-webkit-border-radius:0!important;-moz-border-radius:0!important;width:100%;padding:8px;height:auto;background-color:#fff;border:1px solid #d8d8d8!important;color:#666}textarea{height:168px}div.wpcf7 input[type=email],div.wpcf7 input[type=tel],div.wpcf7 input[type=text]{text-indent:35px}.wpcf7-form p{text-indent:0}.wpcf7-form i{position:absolute;font-size:16px;color:#999;top:50%;transform:translateY(-50%);z-index:2;left:7px}.wpcf7-form i::after{content:'';height:18px;border-right:1px solid #999;margin-left:7px}.wpcf7 input.wpcf7-submit{width:100%;background:#f4ba51;border:0!important}.c-locate,.c-phone{width:50%}.c-phone{background:#ffc053;padding:20px 0}.block-map{max-width:760px;margin:0 auto;border:5px solid #f4ba51;box-shadow:0 0 7px grey}.block-map p{margin:0}.footercredits{border-top:1px solid;margin-top:15px}.footercol1{padding-bottom:20px;border-bottom:1px solid}.footercol1 h2{color:#fff}.footercol2 p{font-size:.85em;font-style:italic;margin:0 0 15px}.footer-widget .block-table-cell{width:50%;vertical-align:top}.footer-widget h4{color:#fff;font-size:1.05em;font-weight:300}.footer-widget ul{list-style:none;padding:0}.footer-widget li{font-size:.8em;padding:2px 0;display:block}.footer-widget li a{opacity:.5;color:#fff}.footer-widget li a:hover{opacity:1;color:#fff}.footernav ul li a:hover{background:0 0}@media(max-width:1024px){.service-list .massage li { width: calc(50% - 1px) !important;}.sliderclass .container{padding:0}.kt-flexslider{max-width:1024px!important}.captiontitle{font-size:20px}.flexslider .captiontext p{font-size:14px}.slider-txt{display:block;margin-bottom:10px}.total-procedure,.wellcome{background:#fff}.partner-title{display:table-row}.partner-title h4,.partner-title p{display:block;width:100%;text-align:center}.promo ul{margin-top:0}.promo-img .block-title{position:absolute;top:50%;transform:translateY(-50%);width:100%}.procedure,.promo-img{display:block;width:100%;position:relative}.promo-img{min-height:320px}.p-menu li{width:50%}.promo li{width:48%;margin:1%}.procedure li,.service-list li{width:calc(50% - 1px)}}@media(max-width:767px){.kt_imgsplit_title::after{margin:10px auto 20px}}@media(max-width:599px){.service-list .massage li { width: calc(100% - 1px) !important;}.flex-caption{top:65%}.captiontitle{font-size:16px}.captiontitle::after,.slider-txt{display:none}.p-menu li{width:100%}.promo li{width:98%;margin:1%}.procedure li,.service-list li{width:calc(100% - 1px)}.massage li{width:100%}.procedure-o-img,.procedure-o-txt{display:block;width:100%;text-align:center}.c-locate,.c-phone{display:block;width:100%}}
