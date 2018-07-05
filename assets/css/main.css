@@ -6346,7 +6346,7 @@ nav ul li {
 
 .order-decor {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .order-decor:before, .order-decor:after {
@@ -7893,6 +7893,10 @@ header .container-header {
   color: #000;
 }
 
+.reviews-list .reviews--item-wrap {
+  margin-bottom: 40px;
+}
+
 .reviews-btn-wrap {
   margin-bottom: 50px;
   text-align: center;
@@ -8535,11 +8539,12 @@ header .container-header {
   bottom: 0;
   left: 0;
   display: block;
-  width: 75%;
+  width: 55%;
   content: '';
-  background-image: url(../img/home-slider-bg-revert.png);
+  opacity: .6;
+  background-image: url(../img/home-slider-bg.png);
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right top;
   background-size: cover;
 }
 
@@ -9057,11 +9062,76 @@ header .container-header {
   background: #ccc;
 }
 
+.order-form form .input-wrap textarea {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.order-form form .input-wrap textarea:focus, .order-form form .input-wrap textarea:active, .order-form form .input-wrap textarea:hover {
+  outline: 0;
+}
+
 .order-form form .input-wrap:focus:before, .order-form form .input-wrap:active:before, .order-form form .input-wrap:hover:before {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
 .order-form form .input-wrap:focus label, .order-form form .input-wrap:active label, .order-form form .input-wrap:hover label {
+  color: #bdbdbd;
+}
+
+.order-form form .rev-avatar-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 0;
+  transition: all .3s;
+}
+
+.order-form form .rev-avatar-wrap br {
+  display: none;
+}
+
+.order-form form .rev-avatar-wrap:before {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  display: inline-block;
+  height: 1px;
+  content: '';
+  transition: all .3s;
+  background: #ccc;
+}
+
+.order-form form .rev-avatar-wrap label {
+  display: none;
+}
+
+.order-form form .rev-avatar-wrap .top-label {
+  font-size: 10px;
+  font-weight: 200;
+  line-height: 16px;
+  position: absolute;
+  top: -15px;
+  right: 0;
+  left: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  transition: all .3s;
+  text-align: left;
+  vertical-align: middle;
+  color: transparent;
+}
+
+.order-form form .rev-avatar-wrap:focus:before, .order-form form .rev-avatar-wrap:active:before, .order-form form .rev-avatar-wrap:hover:before {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.order-form form .rev-avatar-wrap:focus .top-label, .order-form form .rev-avatar-wrap:active .top-label, .order-form form .rev-avatar-wrap:hover .top-label {
   color: #bdbdbd;
 }
 
@@ -9646,10 +9716,12 @@ header .container-header {
   column-count: 1;
 }
 
+.rewiews-page .article-heading,
 .about-page .article-heading {
   margin-bottom: 130px;
 }
 
+.rewiews-page .about-page--content,
 .about-page .about-page--content {
   font-size: 14px;
   line-height: 21px;
@@ -9657,14 +9729,17 @@ header .container-header {
   color: #37474f;
 }
 
+.rewiews-page .about-page--content p,
 .about-page .about-page--content p {
   margin-bottom: 20px;
 }
 
+.rewiews-page .about-page--team,
 .about-page .about-page--team {
   margin-bottom: 80px;
 }
 
+.rewiews-page .about-page--team-title,
 .about-page .about-page--team-title {
   font-size: 36px;
   font-weight: bold;
@@ -9672,6 +9747,7 @@ header .container-header {
   color: #37474f;
 }
 
+.rewiews-page .about-page--team-title span,
 .about-page .about-page--team-title span {
   position: relative;
   display: inline-block;
@@ -9680,6 +9756,7 @@ header .container-header {
   margin-left: 16px;
 }
 
+.rewiews-page .about-page--team-title span:before,
 .about-page .about-page--team-title span:before {
   position: absolute;
   right: 0;
@@ -9691,6 +9768,7 @@ header .container-header {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
+.rewiews-page .about-page--item,
 .about-page .about-page--item {
   position: relative;
   overflow: hidden;
@@ -9699,7 +9777,9 @@ header .container-header {
   box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.35);
 }
 
-.about-page .about-page--item:before, .about-page .about-page--item:after {
+.rewiews-page .about-page--item:before, .rewiews-page .about-page--item:after,
+.about-page .about-page--item:before,
+.about-page .about-page--item:after {
   position: absolute;
   z-index: 5;
   right: 20px;
@@ -9709,16 +9789,19 @@ header .container-header {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
+.rewiews-page .about-page--item:before,
 .about-page .about-page--item:before {
   width: 2px;
   height: 70px;
 }
 
+.rewiews-page .about-page--item:after,
 .about-page .about-page--item:after {
   width: 70px;
   height: 2px;
 }
 
+.rewiews-page .about-page--item .team--item-img,
 .about-page .about-page--item .team--item-img {
   position: relative;
   display: inline-block;
@@ -9731,6 +9814,7 @@ header .container-header {
   background-size: cover;
 }
 
+.rewiews-page .about-page--item .team--item-title,
 .about-page .about-page--item .team--item-title {
   font-size: 24px;
   font-weight: bold;
@@ -9744,6 +9828,7 @@ header .container-header {
   background-color: #fff;
 }
 
+.rewiews-page .about-page--item .team--item-title span,
 .about-page .about-page--item .team--item-title span {
   font-size: 14px;
   font-weight: normal;
@@ -10512,6 +10597,19 @@ footer .textwidget {
   }
 }
 
+@media (min-width: 560px) {
+  .reviews-list .home-reviews--item .home-reviews--img {
+    width: 160px;
+    height: 220px;
+    min-height: 0;
+  }
+  .reviews-list .home-reviews--item .home-reviews--cont {
+    width: calc(100% - 160px);
+    height: 100%;
+    padding: 30px 35px;
+  }
+}
+
 @media (max-width: 1260px) {
   .header-nav--main {
     width: calc(100% - 190px  + 60px);
@@ -11079,22 +11177,22 @@ footer .textwidget {
     overflow: hidden;
     width: 100%;
   }
-  .home-reviews .home-reviews--item {
+  .home-reviews--item {
     display: inline-block;
-    padding-top: 70vw;
+    padding-top: 80vw;
   }
-  .home-reviews .home-reviews--item .home-reviews--img {
+  .home-reviews--item .home-reviews--img {
     position: absolute;
     top: 0;
     right: 0;
     bottom: auto;
     left: 0;
     width: 100%;
-    height: 70vw !important;
+    height: 80vw !important;
     min-height: auto;
     background-position: center;
   }
-  .home-reviews .home-reviews--item .home-reviews--cont {
+  .home-reviews--item .home-reviews--cont {
     width: 100%;
     background: rgba(255, 255, 255, 0.9);
   }

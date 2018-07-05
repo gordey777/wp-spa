@@ -13,7 +13,7 @@ get_header(); ?>
           } else {
             $style = '';
           }?>
-      <div class="article-heading container" <?php echo $style; ?>>
+      <div class="article-heading container" <?php echo $style; ?> >
         <div class="row">
           <div class="headind--wrap col-lg-10 offset-lg-1">
             <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
@@ -60,18 +60,19 @@ get_header(); ?>
             </div>
           <?php }?>
 
-          <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-10 offset-lg-1'); ?>>
-            <div class=" courses-page--content">
-                <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-                  <h2 class="courses-page--title"><?php the_field('second_title'); ?><span></span></h2>
-                  <div class="courses-page--descr">
-                    <?php the_content(); ?>
-                  </div>
-              </div>
-            </div><!-- /.col-xl-7 offset-1 -->
-          </article>
 
         </div>
+          <div class="row">
+            <?php $page_form = get_field('contacts_form');?>
+            <?php if($page_form){ ?>
+              <div id="page_contact_form" class="order-form col-lg-6 offset-lg-3 col-md-8 offset-md-2 order-decor">
+                <?php echo do_shortcode($page_form); ?>
+              </div>
+            <?php }?>
+
+          </div>
+
+
       </div>
     </div><!-- article-single -->
 

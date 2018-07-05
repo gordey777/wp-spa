@@ -69,8 +69,11 @@
                 <?php if ($i < 2) { ?>
                   <div class="col-sm-6">
                     <div class="gallery-video--item ratio" data-hkoef=".55">
-                      <?php //echo $video["iframe"]; ?>
-                      <div class="videoholder" data-video="<?php echo $video['vid']; ?>" style="background-image: url(<?php echo $video['thumbs']['maximum']["url"]; ?>);">
+                      <?php
+                      $img_input = $video['thumbs']['maximum']["url"];
+                      $img_url = preg_replace('#^http(s)?:#', '', $img_input);
+                      ?>
+                      <div class="videoholder" data-video="<?php echo $video['vid']; ?>" style="background-image: url(<?php echo $img_url; ?>);">
                         <div class="video-title"><?php echo $video["title"]; ?></div>
                       </div>
                     </div>

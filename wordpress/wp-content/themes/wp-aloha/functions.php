@@ -1033,7 +1033,9 @@ function videos_ajax_template(){
     $html = '';
     foreach ($videos as $video) {
       if($n >= $start_num ){
-        $html .= '<div class="col-sm-6"><div class="gallery-video--item ratio" data-hkoef=".55"><div class="videoholder" data-video="'. $video['vid'] . '" style="background-image: url(' . $video['thumbs']['maximum']["url"] .');"><div class="video-title">' . $video["title"] . '</div></div></div></div>';
+        $img_input = $video['thumbs']['maximum']["url"];
+        $img_url = preg_replace('#^http(s)?:#', '', $img_input);
+        $html .= '<div class="col-sm-6"><div class="gallery-video--item ratio" data-hkoef=".55"><div class="videoholder" data-video="'. $video['vid'] . '" style="background-image: url(' . $img_url .');"><div class="video-title">' . $video["title"] . '</div></div></div></div>';
       }
       $n++;
     }
@@ -1073,17 +1075,6 @@ add_action('wp_ajax_nopriv_modal_form_ajax', 'modal_ajax_form');
 
 
 
-
-
-
-//REVIEWS
-
-
-function remove_comment_url($fields) {
-    unset($fields['url']);
-    return $fields;
-}
-add_filter('comment_form_default_fields','remove_comment_url');
 
 add_filter('comment_form_fields', 'kama_reorder_comment_fields' );
 function kama_reorder_comment_fields( $fields ){

@@ -173,9 +173,11 @@
       <div class="container">
         <div class="row">
           <div class="home-video--item col-xl-10 offset-xl-1 ratio" data-hkoef=".55">
-            <?php $front_video = get_field('home_video'); ?>
-            <?php //echo $front_video["iframe"]; ?>
-            <div class="videoholder" data-video="<?php echo $front_video['vid']; ?>" style="background-image: url(<?php echo $front_video['thumbs']['maximum']["url"]; ?>);">
+            <?php $front_video = get_field('home_video');
+            $img_input = $front_video['thumbs']['maximum']["url"];
+            $img_url = preg_replace('#^http(s)?:#', '', $img_input);
+            ?>
+            <div class="videoholder" data-video="<?php echo $front_video['vid']; ?>" style="background-image: url(<?php echo $img_url; ?>);">
               <div class="video-title"><?php echo $front_video["title"]; ?></div>
             </div>
           </div><!-- /.row -->
@@ -183,83 +185,32 @@
       </div><!-- /.container -->
     </div><!-- /.home-video -->
 
+  <?php if( have_rows('reviews') ): ?>
+    <div class="home-reviews dots-decor-left decor-bottom">
+      <div class="container">
+        <div class="row">
+          <h6 class="home-reviews--heading col-xl-10 offset-xl-1"><?php the_field('reviews_title'); ?><span></span></h6>
+        </div><!-- row -->
+      </div><!-- /.container -->
 
-      <div class="home-reviews dots-decor-left decor-bottom">
-        <div class="container">
-          <div class="row">
-            <h6 class="home-reviews--heading col-xl-10 offset-xl-1"><?php the_field('reviews_title'); ?><span></span></h6>
-          </div><!-- row -->
-        </div><!-- /.container -->
-
-        <?php
-        $args = array(
-          'author_email'        => '',
-          'author__in'          => '',
-          'author__not_in'      => '',
-          'include_unapproved'  => '',
-          'fields'              => '',
-          'comment__in'         => '',
-          'comment__not_in'     => '',
-          'karma'               => '',
-          'number'              => '',
-          'offset'              => '',
-          'no_found_rows'       => true,
-          'orderby'             => '',
-          'order'               => 'DESC',
-          'status'              => 'approve',
-          'type'                => '',
-          'type__in'            => '',
-          'type__not_in'        => '',
-          'user_id'             => '',
-          'search'              => '',
-          'count'               => false,
-          'meta_key'            => '',
-          'meta_value'          => '',
-          'meta_query'          => '',
-          'date_query'          => null, // See WP_Date_Query
-          'hierarchical'        => false,
-          'update_comment_meta_cache'  => true,
-          'update_comment_post_cache'  => false,
-        );
-        if( $comments = get_comments( $args ) ): ?>
-        <div class="slider--wrap">
-          <div class="hr-slide--container container owl-carousel">
-
-            <?php foreach( $comments as $comment ):
-              $attachment = get_comment_meta( $comment->comment_ID , 'comment_image_reloaded', true );
-              $avatar_url = '';
-              $ava_url = $comment->comment_author_url;
-              //var_dump($attachment);
-              if ($attachment){
-                $avatar_url = 'style="background-image: url(' . wp_get_attachment_url($attachment[0]) .');"';
-              } else if ($ava_url) {
-                $avatar_url = 'style="background-image: url(' . $ava_url .');"';
-              } else {
-                $avatar_url = 'style="background-image: url(' . get_template_directory_uri() . '/img/noimage.jpg );"';
-              }
-                ?>
-                <div class="home-reviews--item">
-                  <div class="home-reviews--img ratio" data-hkoef="1.5" data-hkoefxs=".8" <?php echo $avatar_url; ?>></div>
-
-                  <div class="home-reviews--cont">
-                    <span class="home-reviews--name"><?php echo $comment->comment_author ;?></span>
-                    <span class="home-reviews--title"><?php //echo $comment->comment_author_url ;?></span>
-                    <p><?php echo $comment->comment_content ;?></p>
-                  </div>
+      <div class="slider--wrap">
+        <div class="hr-slide--container container owl-carousel">
+          <?php while( have_rows('reviews') ): the_row();?>
+            <?php $ava_image = get_sub_field('img');?>
+              <div class="home-reviews--item">
+                <div class="home-reviews--img ratio" data-hkoef="1.5" data-hkoefxs=".8" style="background-image: url(<?php echo $ava_image['sizes']['medium']; ?>);"></div>
+                <div class="home-reviews--cont">
+                  <span class="home-reviews--name"><?php the_sub_field('name');?></span>
+                  <span class="home-reviews--title"><?php the_sub_field('desc');?></span>
+                  <?php the_sub_field('text');?>
                 </div>
-            <?php endforeach; ?>
+              </div>
+          <?php endwhile; ?>
 
-          </div><!-- /.hr-slide--container col-xl-10 -->
-        </div>
-    <?php endif; ?>
-        <div class="container reviews-btn-wrap">
-          <button class="btn btn-blue-half reviews-btn" data-toggle="modal" data-target="#reviewModal"><?php the_field('reviews_btn'); ?></button>
-        </div>
-      </div><!-- /.home-reviews -->
-
-
-
-
+        </div><!-- /.hr-slide--container col-xl-10 -->
+      </div>
+    </div><!-- /.home-reviews -->
+  <?php endif; ?>
 
 
 

@@ -321,7 +321,7 @@ nav {
 
 .order-decor {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   &:before,
   &:after {
     position: absolute;
@@ -2078,6 +2078,7 @@ header {
     margin-bottom: 50px;
   }
 }
+
 .home-reviews--item {
   position: relative;
 
@@ -2153,6 +2154,20 @@ header {
     margin-bottom: 0;
 
     color: #000;
+  }
+}
+
+.reviews-list {
+  .reviews--item-wrap {
+    margin-bottom: 40px;
+  }
+  .home-reviews--item {
+    .home-reviews--img {
+      //
+    }
+    .home-reviews--cont {
+      //
+    }
   }
 }
 
@@ -2853,13 +2868,18 @@ article {
 
     display: block;
 
-    width: 75%;
+    width: 55%;
 
     content: '';
 
-    background-image: url(../img/home-slider-bg-revert.png);
+    opacity: .6;
+    //background-image: url(../img/home-slider-bg-revert.png);
+    //background-repeat: no-repeat;
+    //background-position: right bottom;
+    //background-size: cover;
+    background-image: url(../img/home-slider-bg.png);
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: right top;
     background-size: cover;
   }
   a {
@@ -3446,6 +3466,20 @@ article {
 
         background: #ccc;
       }
+      textarea {
+        margin-bottom: 0;
+
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        //box-shadow: none;
+        &:focus,
+        &:active,
+        &:hover {
+          outline: 0;
+          //box-shadow: none;
+        }
+      }
       &:focus,
       &:active,
       &:hover {
@@ -3453,6 +3487,69 @@ article {
           background: $base-gradient;
         }
         label {
+          color: #bdbdbd;
+        }
+      }
+    }
+    .rev-avatar-wrap {
+      position: relative;
+
+      display: inline-block;
+
+      width: 100%;
+      margin-bottom: 28px;
+      padding: 0;
+
+      transition: all .3s;
+      br {
+        display: none;
+      }
+      &:before {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+
+        display: inline-block;
+
+        height: 1px;
+
+        content: '';
+        transition: all .3s;
+
+        background: #ccc;
+      }
+      label {
+        display: none;
+      }
+      .top-label {
+        font-size: 10px;
+        font-weight: 200;
+        line-height: 16px;
+
+        position: absolute;
+        top: -15px;
+        right: 0;
+        left: 0;
+
+        display: inline-block;
+
+        margin: 0;
+        padding: 0;
+
+        transition: all .3s;
+        text-align: left;
+        vertical-align: middle;
+
+        color: transparent;
+      }
+      &:focus,
+      &:active,
+      &:hover {
+        &:before {
+          background: $base-gradient;
+        }
+        .top-label {
           color: #bdbdbd;
         }
       }
@@ -4147,7 +4244,7 @@ article {
   }
 }
 
-
+.rewiews-page,
 .about-page {
   .article-heading {
     margin-bottom: 130px;
