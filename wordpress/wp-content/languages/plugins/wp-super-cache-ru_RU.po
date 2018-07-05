@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WP Super Cache - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-27 15:58:36+0000\n"
+"PO-Revision-Date: 2018-06-19 09:58:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,11 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: Plugins - WP Super Cache - Stable (latest release)\n"
 
-#: wp-cache.php:3643
+#: wp-cache.php:3666
 msgid "WP Super Cache: could not delete files"
 msgstr "WP Super Cache: невозможно удалить файлы"
 
-#: wp-cache.php:3640
+#: wp-cache.php:3663
 msgid ""
 "You should delete these files manually.\n"
 "You may need to change the permissions of the files or parent directory.\n"
@@ -31,7 +31,7 @@ msgstr ""
 "\n"
 "Спасибо."
 
-#: wp-cache.php:3635
+#: wp-cache.php:3658
 msgid ""
 "Dear User,\n"
 "\n"
@@ -46,7 +46,7 @@ msgstr ""
 "\n"
 
 #: wp-cache.php:2318
-msgid "Error: Configuration file %s s missing. Please reload the page."
+msgid "Error: Configuration file %s is missing. Please reload the page."
 msgstr "Ошибка: Конфигурационный файл %s отсутствует. Перезагрузите страницу."
 
 #: wp-cache.php:2315
@@ -77,7 +77,7 @@ msgstr "Сохранить настройки"
 msgid "disable"
 msgstr "отключено"
 
-#: wp-cache.php:3600
+#: wp-cache.php:3623
 msgid "Warning! WP Super Cache preload was interrupted but has been restarted."
 msgstr "Предупреждение! Предзагрузка кеша была прервана, но начата заново."
 
@@ -413,11 +413,11 @@ msgstr "https://wordpress.org/plugins/wp-super-cache/"
 msgid "WP Super Cache"
 msgstr "WP Super Cache"
 
-#: wp-cache.php:3687
+#: wp-cache.php:3710
 msgid "Delete cache of the current page"
 msgstr "Удалить кеш для текущей страницы"
 
-#: wp-cache.php:3650
+#: wp-cache.php:3673
 msgid ""
 "Dear User,\n"
 "\n"
@@ -447,11 +447,11 @@ msgstr ""
 "Плагин WP Super Cache\n"
 "http://wordpress.org/plugins/wp-super-cache/"
 
-#: wp-cache.php:3650
+#: wp-cache.php:3673
 msgid "Supercache Uninstall Problems"
 msgstr "Проблемы при удалении плагина"
 
-#: wp-cache.php:3584
+#: wp-cache.php:3607
 msgid ""
 "Preload has been restarted.\n"
 "%s"
@@ -459,43 +459,43 @@ msgstr ""
 "Общее кэширование было перезапущено.\n"
 "%s"
 
-#: wp-cache.php:3584
+#: wp-cache.php:3607
 msgid "[%s] Preload may have stalled."
 msgstr "[%s] Предварительная загрузка кеша могла быть прервана."
 
-#: wp-cache.php:3541
+#: wp-cache.php:3564
 msgid "Cleaning up old supercache files."
 msgstr "Удалять старые файлы из кэша Super Cache."
 
-#: wp-cache.php:3541
+#: wp-cache.php:3564
 msgid "[%s] Cache Preload Completed"
 msgstr "[%s] Общее кэширование завершено"
 
-#: wp-cache.php:3530
+#: wp-cache.php:3553
 msgid "Scheduling next preload refresh in %d minutes."
 msgstr "Следующее запланированное обновление общего кэша через %d минут."
 
-#: wp-cache.php:3520
+#: wp-cache.php:3543
 msgid "Refreshed the following posts:"
 msgstr "Следующие записи обновлены:"
 
-#: wp-cache.php:3520
+#: wp-cache.php:3543
 msgid "[%1$s] %2$d posts refreshed"
 msgstr "[%1$s] %2$d кэш записей обновлен"
 
-#: wp-cache.php:3451 wp-cache.php:3510
+#: wp-cache.php:3474 wp-cache.php:3533
 msgid "[%1$s] Cache Preload Stopped"
 msgstr "[%1$s] Общее кэширование остановлено"
 
-#: wp-cache.php:3484
+#: wp-cache.php:3507
 msgid "[%1$s] Refreshing posts from %2$d to %3$d"
 msgstr "[%1$s] Обновление кэша записей с %2$d по %3$d"
 
-#: wp-cache.php:3427
+#: wp-cache.php:3450
 msgid "[%1$s] Refreshing %2$s taxonomy from %3$d to %4$d"
 msgstr "[%1$s] Обновляется %2$s таксономия с %3$d на %4$d"
 
-#: wp-cache.php:3397
+#: wp-cache.php:3420
 msgid "[%1$s] Cache Preload Started"
 msgstr "[%1$s] Общее кэширование началось"
 
@@ -1198,7 +1198,7 @@ msgid "Delete Cache On All Blogs"
 msgstr "Удалить кеш на всех блогах"
 
 #: wp-cache.php:1260 wp-cache.php:2836 wp-cache.php:2855 wp-cache.php:3091
-#: wp-cache.php:3686
+#: wp-cache.php:3709
 msgid "Delete Cache"
 msgstr "Удалить весь кэш"
 
@@ -1487,11 +1487,11 @@ msgstr "При активации общего кэширования, буде�
 msgid "Preload Cache Now"
 msgstr "Создать общий кэш сейчас"
 
-#: wp-cache.php:3779
+#: wp-cache.php:3802
 msgid "Scheduled preloading of cache cancelled."
 msgstr "Общее кэширование по расписанию отключено."
 
-#: wp-cache.php:3754
+#: wp-cache.php:3777
 msgid "Scheduled preloading of cache almost cancelled. It may take up to a minute for it to cancel completely."
 msgstr "Запланированная предзагрузка кеша почти отменена. Это займет около минуты для полной отмены."
 
@@ -1699,15 +1699,15 @@ msgstr "Внимание! Включен режим PHP Safe Mode!"
 msgid "Please create %s /wp-cache-config.php from wp-super-cache/wp-cache-config-sample.php"
 msgstr "Пожалуйста, создайте файл %s /wp-cache-config.php из wp-super-cache/wp-cache-config-sample.php"
 
-#: wp-cache-phase2.php:2929
+#: wp-cache-phase2.php:2978
 msgid "[%1$s] WP Super Cache GC Report"
 msgstr "Отчёт сборщика мусора [%1$s] WP Super Cache"
 
-#: wp-cache-phase2.php:2920
+#: wp-cache-phase2.php:2969
 msgid "Cache expiry cron job took more than 30 seconds. You should probably run the garbage collector more often."
 msgstr "Задача планировщика по очистке кеша заняла более 30 секунд. Возможно вам следует запускать сборщик мусора чаще."
 
-#: wp-cache-phase2.php:2916
+#: wp-cache-phase2.php:2965
 msgid "Cache expiry cron job failed. Job will run again in 10 seconds."
 msgstr "Задача планировщика по очистке завершилась неудачей. Задача будет снова запущена через 10 секунд."
 
