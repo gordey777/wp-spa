@@ -18,7 +18,7 @@
           'post_type'    => 'any',
           'numberposts' => -1,
           'posts_per_page' => -1,
-          'orderby'     => 'title',
+          'orderby'     => 'menu_order',
           'order'       => 'ASC',
           'post_status'  => 'publish',
           'meta_key' => '_wp_page_template',

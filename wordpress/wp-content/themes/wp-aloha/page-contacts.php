@@ -18,7 +18,7 @@
             <?php $location = get_field('location');
             if( !empty($location) ): ?>
               <div class="acf-map">
-                <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>" data-icon="<?php echo get_template_directory_uri(); ?>/img/favicons/apple-touch-icon-76x76.png"></div>
               </div>
             <?php endif; ?>
           </div><!-- /.home-contacts--map col-lg-6 -->

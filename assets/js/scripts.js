@@ -7474,13 +7474,21 @@ if (typeof jQuery === "undefined") {
    *  @param map (Google Map object)
    *  @return  n/a
    */
+
+
+
+
+
   function add_marker($marker, map) {
     // var
     var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
+    var map_flag = $($marker).data('icon');
+
     // create marker
     var marker = new google.maps.Marker({
       position: latlng,
-      map: map
+      map: map,
+      icon: map_flag,
     });
     // add to array
     map.markers.push(marker);
@@ -7618,7 +7626,7 @@ jQuery(document).ready(function($) {
     var owlReviews = $('.hr-slide--container');
     owlReviews.owlCarousel({
       //items: 2,
-      loop: true,
+      rewind: true,
       //navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
       navText: ['', ''],
       dots: false,
@@ -7957,3 +7965,64 @@ function autoRatio() {
     }, 100);
   })();
 }
+
+
+/*
+ * Let's begin with validation functions
+ */
+jQuery.extend(jQuery.fn, {
+  /*
+   * check if field value lenth more than 3 symbols ( for name and comment )
+   */
+  validate: function() {
+    if (jQuery(this).val().length < 3) { jQuery(this).addClass('error'); return false } else { jQuery(this).removeClass('error'); return true }
+  },
+  /*
+   * check if email is correct
+   * add to your CSS the styles of .error field, for example border-color:red;
+   */
+  validateEmail: function() {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/,
+      emailToValidate = jQuery(this).val();
+    if (!emailReg.test(emailToValidate) || emailToValidate == "") {
+      jQuery(this).addClass('error');
+      return false
+    } else {
+      jQuery(this).removeClass('error');
+      return true
+    }
+  },
+});
+
+jQuery(function($) {
+
+  /*
+   * On comment form submit
+   */
+  $('#commentform').submit(function() {
+
+    // define some vars
+    var button = $('#submit'), // submit button
+      respond = $('#respond'), // comment form container
+      commentlist = $('.comment-list'), // comment list container
+      cancelreplylink = $('#cancel-comment-reply-link');
+
+    // if user is logged in, do not validate author and email fields
+    if ($('#author').length)
+      $('#author').validate();
+
+    if ($('#email').length)
+      $('#email').validateEmail();
+
+    // validate comment in any case
+    $('#comment').validate();
+
+    // if comment form isn't in process, submit it
+    if (!button.hasClass('loadingform') && !$('#author').hasClass('error') && !$('#email').hasClass('error') && !$('#comment').hasClass('error')) {
+      button.attr("disabled", false);
+    } else {
+      button.attr("disabled", true);
+    }
+
+  });
+});

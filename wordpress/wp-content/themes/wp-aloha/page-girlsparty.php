@@ -43,12 +43,12 @@
               }
               ?>
               <div class="packages--item row row-eq-height">
-                <div class="packages--item-img col-lg-4 <?php echo $order_1; ?>" style="background-image : url(<?php echo $image['url']; ?>);">
+                <div class="packages--item-img col-lg-5 <?php echo $order_1; ?>" style="background-image : url(<?php echo $image['url']; ?>);">
 
 
                 </div><!-- /.packages--item-img col-xl-4 -->
 
-                <div class="packages--item-cont col-lg-8 <?php echo $order_2; ?>">
+                <div class="packages--item-cont col-lg-7 <?php echo $order_2; ?>">
                   <h3 class="pic--title"><?php the_sub_field('package_title'); ?><span></span></h3>
                   <div class="pic--descr">
                     <?php the_sub_field('package_description'); ?>

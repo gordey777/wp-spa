@@ -150,7 +150,7 @@
       <?php if($image){ ?>
         <style>
           .home-girls::before{
-            background-image: url(<?php echo $image['url']; ?>);
+            background-image: url(<?php echo $image['url']; ?>) !important;
           }
         </style>
       <?php }?>
@@ -183,35 +183,81 @@
       </div><!-- /.container -->
     </div><!-- /.home-video -->
 
-    <?php $posts = get_field('reviews');
-     if( $posts ): ?>
+
       <div class="home-reviews dots-decor-left decor-bottom">
         <div class="container">
           <div class="row">
             <h6 class="home-reviews--heading col-xl-10 offset-xl-1"><?php the_field('reviews_title'); ?><span></span></h6>
           </div><!-- row -->
         </div><!-- /.container -->
+
+        <?php
+        $args = array(
+          'author_email'        => '',
+          'author__in'          => '',
+          'author__not_in'      => '',
+          'include_unapproved'  => '',
+          'fields'              => '',
+          'comment__in'         => '',
+          'comment__not_in'     => '',
+          'karma'               => '',
+          'number'              => '',
+          'offset'              => '',
+          'no_found_rows'       => true,
+          'orderby'             => '',
+          'order'               => 'DESC',
+          'status'              => 'approve',
+          'type'                => '',
+          'type__in'            => '',
+          'type__not_in'        => '',
+          'user_id'             => '',
+          'search'              => '',
+          'count'               => false,
+          'meta_key'            => '',
+          'meta_value'          => '',
+          'meta_query'          => '',
+          'date_query'          => null, // See WP_Date_Query
+          'hierarchical'        => false,
+          'update_comment_meta_cache'  => true,
+          'update_comment_post_cache'  => false,
+        );
+        if( $comments = get_comments( $args ) ): ?>
         <div class="slider--wrap">
           <div class="hr-slide--container container owl-carousel">
 
-            <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-              <?php setup_postdata($post); ?>
+            <?php foreach( $comments as $comment ):
+              $attachment = get_comment_meta( $comment->comment_ID , 'comment_image_reloaded', true );
+              $avatar_url = '';
+              $ava_url = $comment->comment_author_url;
+              //var_dump($attachment);
+              if ($attachment){
+                $avatar_url = 'style="background-image: url(' . wp_get_attachment_url($attachment[0]) .');"';
+              } else if ($ava_url) {
+                $avatar_url = 'style="background-image: url(' . $ava_url .');"';
+              } else {
+                $avatar_url = 'style="background-image: url(' . get_template_directory_uri() . '/img/noimage.jpg );"';
+              }
+                ?>
                 <div class="home-reviews--item">
-                  <div class="home-reviews--img ratio" data-hkoef="1.5" data-hkoefxs=".8" style="background-image: url(<?php echo the_post_thumbnail_url('medium'); ?>);"></div>
+                  <div class="home-reviews--img ratio" data-hkoef="1.5" data-hkoefxs=".8" <?php echo $avatar_url; ?>></div>
 
                   <div class="home-reviews--cont">
-                    <span class="home-reviews--name"><?php the_title(); ?></span>
-                    <span class="home-reviews--title"><?php the_field('title'); ?></span>
-                    <?php the_content(); ?>
+                    <span class="home-reviews--name"><?php echo $comment->comment_author ;?></span>
+                    <span class="home-reviews--title"><?php //echo $comment->comment_author_url ;?></span>
+                    <p><?php echo $comment->comment_content ;?></p>
                   </div>
                 </div>
-
             <?php endforeach; ?>
-            <?php wp_reset_postdata(); ?>
+
           </div><!-- /.hr-slide--container col-xl-10 -->
         </div>
-      </div><!-- /.home-reviews -->
     <?php endif; ?>
+        <div class="container reviews-btn-wrap">
+          <button class="btn btn-blue-half reviews-btn" data-toggle="modal" data-target="#reviewModal"><?php the_field('reviews_btn'); ?></button>
+        </div>
+      </div><!-- /.home-reviews -->
+
+
 
 
 
@@ -232,7 +278,7 @@
             <div class="home-contacts--map col-lg-6">
               <?php $location = get_field('location'); if( !empty($location) ): ?>
               <div class="acf-map">
-                <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>" data-icon="<?php echo get_template_directory_uri(); ?>/img/favicons/apple-touch-icon-76x76.png"></div>
               </div>
               <?php endif; ?>
             </div><!-- /.home-contacts--map col-lg-6 -->

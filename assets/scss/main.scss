@@ -198,46 +198,58 @@ nav {
 
   padding-right: 0;
   padding-left: 0;
-}
 
-.owl-nav {
-  position: static;
 
-  width: 0;
-  height: 0;
-  .owl-next,
-  .owl-prev {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+  .owl-nav {
+    position: static;
 
-    width: 120px;
+    width: 0;
+    height: 0;
+    button {
+      &:hover,
+      &:active,
+      &:focus {
+        outline: 0;
+      }
+    }
+    button.owl-next,
+    .owl-next,
+    button.owl-prev,
+    .owl-prev {
+      position: absolute;
+      top: 0;
+      bottom: 0;
 
-    cursor: pointer;
-    transition: all .3s;
+      width: 120px;
 
-    opacity: .7;
-    background-repeat: no-repeat;
-    background-size: contain;
-    &:hover {
-      opacity: 1;
+      cursor: pointer;
+      transition: all .3s;
+
+      opacity: .7;
+      //background: transparent;
+      background-repeat: no-repeat;
+      background-size: contain;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    button.owl-prev,
+    .owl-prev {
+      left: 0;
+
+      background-image: url(../img/home-reviews--nav-prev.png);
+      background-position: left bottom;
+    }
+
+    button.owl-next,
+    .owl-next {
+      right: 0;
+
+      background-image: url(../img/home-reviews--nav-next.png);
+      background-position: right bottom;
     }
   }
-  .owl-prev {
-    left: 0;
-
-    background-image: url(../img/home-reviews--nav-prev.png);
-    background-position: left bottom;
-  }
-
-  .owl-next {
-    right: 0;
-
-    background-image: url(../img/home-reviews--nav-next.png);
-    background-position: right bottom;
-  }
 }
-
 
 .heading-decor {
   //position: relative;
@@ -354,8 +366,14 @@ header {
 
   .header--logo {
     display: block;
+    a,
+    span {
+      //
+    }
+
     img {
       max-width: 100%;
+      height: 50px;
     }
   }  .container-top {
     display: inline-block;
@@ -431,7 +449,7 @@ header {
 .header--logo {
   float: left;
 
-  width: 120px;
+  width: 60px;
   margin: 0;
   padding: 0;
 }
@@ -439,7 +457,7 @@ header {
 .header-nav--main {
   position: static;
 
-  width: calc(100% - 310px);
+  width: calc(100% - 310px + 60px);
   //display: inline-block;
   min-height: 100%;
   margin: 0;
@@ -1678,7 +1696,8 @@ header {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 55%;
+    left: calc(50% + (1140px * .333333 * .5));
+    //left: 55%;
 
     display: inline-block;
 
@@ -1698,7 +1717,7 @@ header {
   .home-gift--content {
     position: relative;
 
-    padding: 80px 115px 50px;
+    padding: 4% 100px 4%;
 
     background-color: $base-background-color;
     box-shadow: $base-box-shadow;
@@ -1707,7 +1726,7 @@ header {
     font-size: 36px;
     font-weight: bold;
 
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     color: #37474f;
     span {
@@ -1789,8 +1808,8 @@ header {
     position: relative;
     z-index: 2;
 
-    padding-top: 6%;
-    padding-bottom: 6%;
+    padding-top: 4%;
+    padding-bottom: 4%;
 
     &:before {
       position: absolute;
@@ -1814,7 +1833,7 @@ header {
     position: relative;
     z-index: 2;
 
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     color: #37474f;
     span {
@@ -2055,82 +2074,105 @@ header {
     justify-content: streach;
     flex-flow: row nowrap;
   }
-  .home-reviews--item {
+  .slider--wrap {
+    margin-bottom: 50px;
+  }
+}
+.home-reviews--item {
+  position: relative;
+
+  display: inline-block;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  background-color: #fff;
+
+
+  .home-reviews--img {
+    display: inline-block;
+    float: left;
+
+    width: 35%;
+    min-height: 100%;
+
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+  .home-reviews--cont {
     position: relative;
 
     display: inline-block;
+    float: left;
 
-    width: 100%;
+    width: 65%;
     height: 100%;
-    margin: 0;
-    padding: 0;
+    padding: 60px 35px;
+    &:after {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
 
-    background-color: #fff;
+      width: 70px;
+      height: 70px;
 
+      border-right: 2px solid #00f2fe;
+      border-bottom: 2px solid #00f2fe;
 
-    .home-reviews--img {
-      display: inline-block;
-      float: left;
-
-      width: 35%;
-      min-height: 100%;
-
-      background-repeat: no-repeat;
-      background-position: top center;
-      background-size: cover;
+      @extend .dblock;
     }
-    .home-reviews--cont {
-      position: relative;
+  }
+  .home-reviews--name {
+    font-size: 24px;
+    font-weight: bold;
 
-      display: inline-block;
-      float: left;
+    margin-bottom: 18px;
 
-      width: 65%;
-      height: 100%;
-      padding: 60px 35px;
-      &:after {
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
+    color: #37474f;
+  }
+  .home-reviews--title {
+    font-size: 14px;
 
-        width: 70px;
-        height: 70px;
+    display: block;
 
-        border-right: 2px solid #00f2fe;
-        border-bottom: 2px solid #00f2fe;
+    margin-bottom: 30px;
 
-        @extend .dblock;
-      }
-    }
-    .home-reviews--name {
-      font-size: 24px;
-      font-weight: bold;
+    letter-spacing: 2.1px;
+    text-transform: uppercase;
 
-      margin-bottom: 18px;
+    color: #000;
+  }
+  p {
+    font-size: 14px; //line-height: 21px;
 
-      color: #37474f;
-    }
-    .home-reviews--title {
-      font-size: 14px;
+    display: inline-block;
 
-      display: block;
+    margin-bottom: 0;
 
-      margin-bottom: 30px;
+    color: #000;
+  }
+}
 
-      letter-spacing: 2.1px;
-      text-transform: uppercase;
+.reviews-btn-wrap {
+  margin-bottom: 50px;
 
-      color: #000;
-    }
-    p {
-      font-size: 14px; //line-height: 21px;
+  text-align: center;
+  .reviews-btn {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
 
-      display: inline-block;
+    float: none;
 
-      margin-bottom: 0;
-
-      color: #000;
-    }
+    height: auto;
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 }
 
@@ -2212,6 +2254,7 @@ header {
       display: block;
 
       text-decoration: none;
+      pointer-events: auto;
     }
     .home-contacts--order {
       position: absolute;
@@ -2220,6 +2263,32 @@ header {
     }
   }
 }
+
+.home {
+  .home-contacts {
+    .home-contacts--adress {
+      padding: 50px 100px;
+      h6 {
+        margin-bottom: 5px;
+        padding-top: 15px;
+      }
+      p,
+      a {
+        &:nth-child(2),
+        &:nth-child(4) {
+          margin-bottom: 15px;
+        }
+        &:nth-child(9) {
+          margin-bottom: 0;
+        }
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 
 
 .page-contacts {
@@ -2899,8 +2968,8 @@ article {
   .packages--item-img {
     display: inline-block;
     overflow: hidden; //height: 100%;
+    //max-height: 100vh;
 
-    max-height: 100vh;
     margin: 0;
     padding: 0;
 
@@ -2916,7 +2985,7 @@ article {
     }
   }
   .packages--item-cont {
-    padding: 70px 140px;
+    padding: 70px;
     .pic--title {
       font-size: 36px;
       font-weight: bold;
@@ -3316,6 +3385,13 @@ article {
 
 .order-form {
   margin-bottom: 160px;
+  .comment-respond {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+  }
   .order-title {
     font-size: 28px;
     font-weight: bold;
@@ -4287,6 +4363,8 @@ article {
 
 
 .massages--list {
+  position: relative;
+  z-index: 2;
   &.recommend-slider,
   &.recent-servises--slider {
     .massage--wrap {
@@ -4346,8 +4424,9 @@ article {
       pointer-events: none;
 
       background: url(../img/home-slider-bg.png) no-repeat, rgba(0,0,0,.3);
-      background-position: right -200% top;
-      background-size: cover;;
+      //background: rgba(0,0,0,.3);
+      background-position: -999px top;
+      background-size: cover;
     }
     &:hover {
       z-index: 0;
@@ -4355,8 +4434,9 @@ article {
 
       box-shadow: none;
       &:before {
-        opacity: .85;
-        background: $base-gradient;
+        background-position: left top;
+        //opacity: .7;
+        //background: $base-gradient;
       }
       .massage--content {
         top: 35px;
@@ -4966,17 +5046,41 @@ footer {
   //margin: $footer_margin auto 0;
 
   padding-top: 50px;
+  //color: #37474f;
 
-  color: #37474f;
-  background-color: $gray-medium;
+  color: #fff;
+  //background-color: $gray-medium;
+  background: $base-gradient;
+
   .footer-copy {
-    padding-top: 80px;
+    //padding-top: 80px;
     padding-right: 5%;
     padding-bottom: 40px;
 
-    background-image: url(../img/logo.png);
-    background-repeat: no-repeat;
-    background-position: left top;
+    //background-image: url(../img/logo.png);
+    //background-repeat: no-repeat;
+    //background-position: left top;
+  }
+  .footer--logo {
+    display: inline-block;
+
+    width: 100%;
+
+    text-align: center;
+    a,
+    span {
+      display: inline-block;
+
+      width: 100px;
+      height: 80px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+
+      background-image: url(../img/logo.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
   }
   .footer-widget,
   .footer--text {
@@ -4984,10 +5088,14 @@ footer {
     line-height: 21px;
     a {
       text-decoration: none;
+      //color: #37474f;
 
-      color: #37474f;
+      color: #fff;
       &:hover {
-        color: #000;
+        text-decoration: underline;
+        //color: #000;
+
+        color: #fff;
       }
     }
   }
@@ -5000,8 +5108,9 @@ footer {
 
     letter-spacing: 2.1px;
     text-transform: uppercase;
+    //color: #37474f;
 
-    color: #37474f;
+    color: #fff;
   }
   .textwidget {
     margin-bottom: 30px;

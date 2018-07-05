@@ -58,7 +58,7 @@ Template Post Type: page, massage
                   }
                   ?>
 
-                  <div class="col-xl-3 col-lg-4 col-md-6 massage--wrap">
+                  <div class="col-lg-4 col-md-6 massage--wrap">
                     <div id="post-<?php the_ID(); ?>" class="massage--item ratio" data-hkoef=".9" style="background-image: url(<?php echo $item_image ?>);">
                       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="massage--link"></a>
                       <span class="massage--price"><?php the_field('price'); ?></span>

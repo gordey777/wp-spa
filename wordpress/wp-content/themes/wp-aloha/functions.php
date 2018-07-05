@@ -765,6 +765,7 @@ function post_type_product() {
     'public' => true,
     'exclude_from_search' => true,
     'show_ui' => true,
+    'show_in_nav_menus' => false,
     'menu_position' => 6,
     // https://developer.wordpress.org/resource/dashicons/
     'menu_icon' => 'dashicons-image-filter',
@@ -776,7 +777,7 @@ function post_type_product() {
   );
   register_post_type( 'product' , $args );
 }
-
+/*
 add_action( 'init', 'post_type_massage' );
 function post_type_massage() {
   $labels = array(
@@ -847,7 +848,7 @@ function post_type_reviews() {
   register_post_type( 'review' , $args );
 }
 
-
+*/
 
 
 /*
@@ -1067,6 +1068,40 @@ function modal_ajax_form(){
 
 add_action('wp_ajax_modal_form_ajax', 'modal_ajax_form');
 add_action('wp_ajax_nopriv_modal_form_ajax', 'modal_ajax_form');
+
+
+
+
+
+
+
+
+//REVIEWS
+
+
+function remove_comment_url($fields) {
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','remove_comment_url');
+
+add_filter('comment_form_fields', 'kama_reorder_comment_fields' );
+function kama_reorder_comment_fields( $fields ){
+  // die(print_r( $fields )); // посмотрим какие поля есть
+  $new_fields = array();
+  $myorder = array('author','email','comment');
+  foreach( $myorder as $key ){
+    $new_fields[ $key ] = $fields[ $key ];
+    unset( $fields[ $key ] );
+  }
+  // если остались еще какие-то поля добавим их в конец
+  if( $fields )
+    foreach( $fields as $key => $val )
+      $new_fields[ $key ] = $val;
+  return $new_fields;
+}
+
+
 
 
 ?>
