@@ -68,7 +68,8 @@
       .home-reviews--img {
         width: 160px;
         height: 220px;
-        min-height: 0;
+        //min-height: 0;
+        margin: 0;
       }
       .home-reviews--cont {
         width: calc(100% - 160px);
@@ -262,9 +263,20 @@
       padding-top: 5px;
       padding-bottom: 5px;
       .header-nav--main,
-      .header--phone,
+      //.header--phone,
       .header-nav--lang {
         display: none;
+      }
+      .header--phone {
+        width: auto;
+        max-width: 200px;
+        margin-bottom: 0;
+        a {
+          display: inline-block;
+
+          width: 100%;
+          padding: 5px;
+        }
       }
     }
   }
@@ -598,7 +610,8 @@
       }
     }
     .home-content--item {
-      padding-top: calc(40vw + 40px);
+      padding-top: calc(70vw + 40px);
+      padding-right: 20px;
     }
     .home-content--img {
       position: absolute;
@@ -607,8 +620,10 @@
       left: 0;
 
       width: auto;
-      height: 40vw;
+      height: 70vw;
       margin: 0;
+
+      background-position: center;
       &:before {
         display: none;
       }
@@ -944,6 +959,19 @@
     .packages--item-img {
       height: 70vw;
     }
+    .packages--item-cont {
+      .pic--time,
+      .pic--price {
+        float: left;
+
+        width: 50%;
+        margin-bottom: 40px;
+        padding-right: 5px;
+        padding-left: 5px;
+
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -960,6 +988,18 @@
 
       width: 100%;
       height: 60vw;
+    }
+  }
+  .girlsparty-page {
+    .packages--item-cont {
+      padding-right: 10px;
+      padding-left: 10px;
+      .pic--time {
+        width: 60%;
+      }
+      .pic--price {
+        width: 40%;
+      }
     }
   }
 }
@@ -1007,6 +1047,7 @@
     }
   }
 }
+
 
 
 

@@ -55,6 +55,24 @@
                   <p><?php echo $images[0]['alt']; ?></p>
                 </a>
               </div>
+
+              <?php $images = get_field('gallery');
+              if( $images ): ?>
+                <div class="hidden-galery-list">
+                  <?php
+                  $m = 0;
+                  foreach( $images as $image ):
+                    if ($m > 5) {
+                    ?>
+                      <a href="<?php echo $image['url']; ?>" rel="lightbox"><?php echo $image['alt']; ?></a>
+                    <?php
+                    }
+                    $m++;
+                  endforeach;
+                  ?>
+                </div>
+              <?php endif; ?>
+
               <button id="loadMoreImages" class="btn btn-blue-half btn-cp-order"><?php the_field('btn_label'); ?></button>
             </div>
           </div>

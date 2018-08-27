@@ -44,6 +44,7 @@
       <?php $i++; endwhile; endif; ?>
     </div><!-- /.row -->
   </div><!-- /.container -->
+	<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b48a659715c73e1"></script>
 </footer><!-- /footer -->
 
 

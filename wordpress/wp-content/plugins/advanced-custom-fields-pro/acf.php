@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields PRO
 Plugin URI: https://www.advancedcustomfields.com/
 Description: Customise WordPress with powerful, professional and intuitive fields.
-Version: 5.6.7
+Version: 5.6.2
 Author: Elliot Condon
 Author URI: http://www.elliotcondon.com/
 Copyright: Elliot Condon
@@ -13,16 +13,12 @@ Domain Path: /lang
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if( ! class_exists('ACF') ) :
+if( ! class_exists('acf') ) :
 
-class ACF {
+class acf {
 	
-	/** @var string The plugin version number */
-	var $version = '5.6.7';
-	
-	
-	/** @var array The plugin settings array */
-	var $settings = array();
+	// vars
+	var $version = '5.6.2';
 	
 	
 	/*
@@ -71,7 +67,7 @@ class ACF {
 			'file'				=> __FILE__,
 			'basename'			=> plugin_basename( __FILE__ ),
 			'path'				=> plugin_dir_path( __FILE__ ),
-			'url'				=> plugin_dir_url( __FILE__ ),
+			'dir'				=> plugin_dir_url( __FILE__ ),
 			
 			// options
 			'show_admin'				=> true,
@@ -160,7 +156,7 @@ class ACF {
 			acf_include('includes/admin/admin-field-group.php');
 			acf_include('includes/admin/admin-field-groups.php');
 			acf_include('includes/admin/install.php');
-			acf_include('includes/admin/admin-tools.php');
+			acf_include('includes/admin/settings-tools.php');
 			acf_include('includes/admin/settings-info.php');
 			
 			
@@ -219,9 +215,9 @@ class ACF {
 		$major = intval( acf_get_setting('version') );
 		
 		
-		// update url
+		// redeclare dir
 		// - allow another plugin to modify dir (maybe force SSL)
-		acf_update_setting('url', plugin_dir_url( __FILE__ ));
+		acf_update_setting('dir', plugin_dir_url( __FILE__ ));
 		
 		
 		// textdomain
@@ -238,37 +234,31 @@ class ACF {
 		acf_include('includes/fields/class-acf-field-text.php');
 		acf_include('includes/fields/class-acf-field-textarea.php');
 		acf_include('includes/fields/class-acf-field-number.php');
-		acf_include('includes/fields/class-acf-field-range.php');
 		acf_include('includes/fields/class-acf-field-email.php');
 		acf_include('includes/fields/class-acf-field-url.php');
 		acf_include('includes/fields/class-acf-field-password.php');
-		
-		acf_include('includes/fields/class-acf-field-image.php');
-		acf_include('includes/fields/class-acf-field-file.php');
 		acf_include('includes/fields/class-acf-field-wysiwyg.php');
 		acf_include('includes/fields/class-acf-field-oembed.php');
-		
+		acf_include('includes/fields/class-acf-field-image.php');
+		acf_include('includes/fields/class-acf-field-link.php');
+		acf_include('includes/fields/class-acf-field-file.php');
 		acf_include('includes/fields/class-acf-field-select.php');
 		acf_include('includes/fields/class-acf-field-checkbox.php');
 		acf_include('includes/fields/class-acf-field-radio.php');
-		acf_include('includes/fields/class-acf-field-button-group.php');
+		acf_include('includes/fields/class-acf-field-range.php');
 		acf_include('includes/fields/class-acf-field-true_false.php');
-		
-		acf_include('includes/fields/class-acf-field-link.php');
 		acf_include('includes/fields/class-acf-field-post_object.php');
 		acf_include('includes/fields/class-acf-field-page_link.php');
 		acf_include('includes/fields/class-acf-field-relationship.php');
 		acf_include('includes/fields/class-acf-field-taxonomy.php');
 		acf_include('includes/fields/class-acf-field-user.php');
-		
 		acf_include('includes/fields/class-acf-field-google-map.php');
 		acf_include('includes/fields/class-acf-field-date_picker.php');
 		acf_include('includes/fields/class-acf-field-date_time_picker.php');
 		acf_include('includes/fields/class-acf-field-time_picker.php');
 		acf_include('includes/fields/class-acf-field-color_picker.php');
-		
 		acf_include('includes/fields/class-acf-field-message.php');
-		acf_include('includes/fields/class-acf-field-accordion.php');
+		//acf_include('includes/fields/class-acf-field-separator.php');
 		acf_include('includes/fields/class-acf-field-tab.php');
 		acf_include('includes/fields/class-acf-field-group.php');
 		do_action('acf/include_field_types', $major);
@@ -478,14 +468,14 @@ class ACF {
 		
 		
 		// scripts
-		wp_register_script('acf-input', acf_get_url("assets/js/acf-input{$min}.js"), array('jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-resizable'), $version );
-		wp_register_script('acf-field-group', acf_get_url("assets/js/acf-field-group{$min}.js"), array('acf-input'), $version );
+		wp_register_script('acf-input', acf_get_dir("assets/js/acf-input{$min}.js"), array('jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-resizable'), $version );
+		wp_register_script('acf-field-group', acf_get_dir("assets/js/acf-field-group{$min}.js"), array('acf-input'), $version );
 		
 		
 		// styles
-		wp_register_style('acf-global', acf_get_url('assets/css/acf-global.css'), array(), $version );
-		wp_register_style('acf-input', acf_get_url('assets/css/acf-input.css'), array('acf-global'), $version );
-		wp_register_style('acf-field-group', acf_get_url('assets/css/acf-field-group.css'), array('acf-input'), $version );
+		wp_register_style('acf-global', acf_get_dir('assets/css/acf-global.css'), array(), $version );
+		wp_register_style('acf-input', acf_get_dir('assets/css/acf-input.css'), array('acf-global'), $version );
+		wp_register_style('acf-field-group', acf_get_dir('assets/css/acf-field-group.css'), array('acf-input'), $version );
 		
 	}
 	
@@ -512,17 +502,25 @@ class ACF {
 		
 		// acf_field_key
 		if( $field_key = $wp_query->get('acf_field_key') ) {
+		
 			$where .= $wpdb->prepare(" AND {$wpdb->posts}.post_name = %s", $field_key );
+			
 	    }
+	    
 	    
 	    // acf_field_name
 	    if( $field_name = $wp_query->get('acf_field_name') ) {
+	    
 			$where .= $wpdb->prepare(" AND {$wpdb->posts}.post_excerpt = %s", $field_name );
+			
 	    }
+	    
 	    
 	    // acf_group_key
 		if( $group_key = $wp_query->get('acf_group_key') ) {
+		
 			$where .= $wpdb->prepare(" AND {$wpdb->posts}.post_name = %s", $group_key );
+			
 	    }
 	    
 	    
@@ -548,9 +546,7 @@ class ACF {
 	
 	function define( $name, $value = true ) {
 		
-		if( !defined($name) ) {
-			define( $name, $value );
-		}
+		if( !defined($name) ) define( $name, $value );
 		
 	}
 	
@@ -573,13 +569,17 @@ class ACF {
 		
 		// check settings
 		if( isset($this->settings[ $name ]) ) {
+			
 			$value = $this->settings[ $name ];
+			
 		}
 		
 		
-		// filter
+		// filter for 3rd party customization
 		if( substr($name, 0, 1) !== '_' ) {
+			
 			$value = apply_filters( "acf/settings/{$name}", $value );
+			
 		}
 		
 		
@@ -606,6 +606,7 @@ class ACF {
 	function update_setting( $name, $value ) {
 		
 		$this->settings[ $name ] = $value;
+		
 		return true;
 		
 	}
@@ -630,19 +631,17 @@ class ACF {
 */
 
 function acf() {
-	
-	// globals
+
 	global $acf;
 	
-	
-	// initialize
 	if( !isset($acf) ) {
-		$acf = new ACF();
+	
+		$acf = new acf();
+		
 		$acf->initialize();
+		
 	}
 	
-	
-	// return
 	return $acf;
 	
 }

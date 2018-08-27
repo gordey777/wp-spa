@@ -7893,8 +7893,17 @@ header .container-header {
   color: #000;
 }
 
+.reviews-list {
+  position: relative;
+  z-index: 4;
+}
+
 .reviews-list .reviews--item-wrap {
   margin-bottom: 40px;
+}
+
+.reviews-list .home-reviews--item {
+  box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.35);
 }
 
 .reviews-btn-wrap {
@@ -9448,6 +9457,16 @@ header .container-header {
   text-align: center;
 }
 
+.hidden-galery-list {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
 .gallery--item-wrap {
   margin-bottom: 30px;
 }
@@ -9716,12 +9735,12 @@ header .container-header {
   column-count: 1;
 }
 
-.rewiews-page .article-heading,
+.reviews-page .article-heading,
 .about-page .article-heading {
   margin-bottom: 130px;
 }
 
-.rewiews-page .about-page--content,
+.reviews-page .about-page--content,
 .about-page .about-page--content {
   font-size: 14px;
   line-height: 21px;
@@ -9729,17 +9748,17 @@ header .container-header {
   color: #37474f;
 }
 
-.rewiews-page .about-page--content p,
+.reviews-page .about-page--content p,
 .about-page .about-page--content p {
   margin-bottom: 20px;
 }
 
-.rewiews-page .about-page--team,
+.reviews-page .about-page--team,
 .about-page .about-page--team {
   margin-bottom: 80px;
 }
 
-.rewiews-page .about-page--team-title,
+.reviews-page .about-page--team-title,
 .about-page .about-page--team-title {
   font-size: 36px;
   font-weight: bold;
@@ -9747,7 +9766,7 @@ header .container-header {
   color: #37474f;
 }
 
-.rewiews-page .about-page--team-title span,
+.reviews-page .about-page--team-title span,
 .about-page .about-page--team-title span {
   position: relative;
   display: inline-block;
@@ -9756,7 +9775,7 @@ header .container-header {
   margin-left: 16px;
 }
 
-.rewiews-page .about-page--team-title span:before,
+.reviews-page .about-page--team-title span:before,
 .about-page .about-page--team-title span:before {
   position: absolute;
   right: 0;
@@ -9768,7 +9787,7 @@ header .container-header {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
-.rewiews-page .about-page--item,
+.reviews-page .about-page--item,
 .about-page .about-page--item {
   position: relative;
   overflow: hidden;
@@ -9777,7 +9796,7 @@ header .container-header {
   box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.35);
 }
 
-.rewiews-page .about-page--item:before, .rewiews-page .about-page--item:after,
+.reviews-page .about-page--item:before, .reviews-page .about-page--item:after,
 .about-page .about-page--item:before,
 .about-page .about-page--item:after {
   position: absolute;
@@ -9789,19 +9808,19 @@ header .container-header {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
-.rewiews-page .about-page--item:before,
+.reviews-page .about-page--item:before,
 .about-page .about-page--item:before {
   width: 2px;
   height: 70px;
 }
 
-.rewiews-page .about-page--item:after,
+.reviews-page .about-page--item:after,
 .about-page .about-page--item:after {
   width: 70px;
   height: 2px;
 }
 
-.rewiews-page .about-page--item .team--item-img,
+.reviews-page .about-page--item .team--item-img,
 .about-page .about-page--item .team--item-img {
   position: relative;
   display: inline-block;
@@ -9814,7 +9833,7 @@ header .container-header {
   background-size: cover;
 }
 
-.rewiews-page .about-page--item .team--item-title,
+.reviews-page .about-page--item .team--item-title,
 .about-page .about-page--item .team--item-title {
   font-size: 24px;
   font-weight: bold;
@@ -9828,7 +9847,7 @@ header .container-header {
   background-color: #fff;
 }
 
-.rewiews-page .about-page--item .team--item-title span,
+.reviews-page .about-page--item .team--item-title span,
 .about-page .about-page--item .team--item-title span {
   font-size: 14px;
   font-weight: normal;
@@ -9837,6 +9856,10 @@ header .container-header {
   letter-spacing: 2.1px;
   text-transform: uppercase;
   color: #000;
+}
+
+.reviews-page .article-heading {
+  margin-bottom: 50px;
 }
 
 .services-content {
@@ -10601,7 +10624,7 @@ footer .textwidget {
   .reviews-list .home-reviews--item .home-reviews--img {
     width: 160px;
     height: 220px;
-    min-height: 0;
+    margin: 0;
   }
   .reviews-list .home-reviews--item .home-reviews--cont {
     width: calc(100% - 160px);
@@ -10735,9 +10758,18 @@ footer .textwidget {
     padding-bottom: 5px;
   }
   header .container-header .header-nav--main,
-  header .container-header .header--phone,
   header .container-header .header-nav--lang {
     display: none;
+  }
+  header .container-header .header--phone {
+    width: auto;
+    max-width: 200px;
+    margin-bottom: 0;
+  }
+  header .container-header .header--phone a {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
   }
   .header-nav--top {
     display: inline-block;
@@ -10989,7 +11021,8 @@ footer .textwidget {
     left: 46%;
   }
   .home-content .home-content--item {
-    padding-top: calc(40vw + 40px);
+    padding-top: calc(70vw + 40px);
+    padding-right: 20px;
   }
   .home-content .home-content--img {
     position: absolute;
@@ -10997,8 +11030,9 @@ footer .textwidget {
     right: 0;
     left: 0;
     width: auto;
-    height: 40vw;
+    height: 70vw;
     margin: 0;
+    background-position: center;
   }
   .home-content .home-content--img:before {
     display: none;
@@ -11237,6 +11271,15 @@ footer .textwidget {
   .girlsparty-page .packages--item-img {
     height: 70vw;
   }
+  .girlsparty-page .packages--item-cont .pic--time,
+  .girlsparty-page .packages--item-cont .pic--price {
+    float: left;
+    width: 50%;
+    margin-bottom: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 450px) {
@@ -11249,6 +11292,16 @@ footer .textwidget {
     position: relative;
     width: 100%;
     height: 60vw;
+  }
+  .girlsparty-page .packages--item-cont {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .girlsparty-page .packages--item-cont .pic--time {
+    width: 60%;
+  }
+  .girlsparty-page .packages--item-cont .pic--price {
+    width: 40%;
   }
 }
 

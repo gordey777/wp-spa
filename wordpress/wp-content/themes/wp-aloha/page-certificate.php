@@ -83,7 +83,7 @@
                   <div class="home-girls--content_wrap page-content">
                     <?php the_field('advantages_content'); ?>
                   </div>
-
+<?php if(function_exists('the_ratings')) { the_ratings(); } ?>
                 </div><!-- /.col-lg-7 -->
               </div>
               </div>

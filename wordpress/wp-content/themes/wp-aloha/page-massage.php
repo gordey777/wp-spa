@@ -124,8 +124,8 @@ Template Post Type: page, massage
                 <div class="container">
                   <div class="row">
                     <div class="mcsc col-lg-8 offset-lg-4">
-                      <h3 class="mcsc--title"><?php the_field('third_title'); ?><span></span></h3>
-                      <div class="page-content"><?php the_field('third_block_content'); ?></div>
+                      <h2 class="mcsc--title"><?php the_field('third_title'); ?><span></span></h2>
+                      <div class="page-content"><?php the_field('third_block_content'); ?></div><?php if(function_exists('the_ratings')) { the_ratings(); } ?>
                     </div><!-- /.mcsc -->
                   </div><!-- /.row -->
                 </div>

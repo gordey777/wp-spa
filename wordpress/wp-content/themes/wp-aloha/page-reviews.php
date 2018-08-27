@@ -4,7 +4,7 @@
 <?php $page__id = get_the_ID(); ?>
 
 
-    <div class="article-single rewiews-page">
+    <div class="article-single reviews-page heading-decor">
           <?php if (get_field('header_image')) {
             $image = get_field('header_image');
             $style = 'style="background-image: url(' . $image['url'] .');"';
@@ -20,18 +20,6 @@
         </div>
       </div><!-- /.article-heading -->
 
-      <div class="container">
-        <div class="row">
-          <article id="post-<?php the_ID(); ?>" <?php post_class('about-page--content col-xl-8 offset-xl-2 col-lg-10 offset-lg-1'); ?>>
-            <div class="article--content page-content">
-              <?php the_content(); ?>
-            </div><!-- /.article--content -->
-          </article>
-        </div>
-      </div><!-- container -->
-      <div class="container reviews-btn-wrap">
-        <a href="#commentform" class="btn btn-blue-half reviews-btn"><?php the_field('reviews_btn'); ?></a>
-      </div>
     </div><!-- article-single -->
 
     <?php
@@ -65,8 +53,8 @@
       'update_comment_post_cache'  => false,
     );
     if( $comments = get_comments( $args ) ): ?>
-      <div class="reviews-list dots-decor-left">
-        <div class="">
+      <div class="reviews-list">
+
           <div class="container">
             <div class="row">
               <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -99,9 +87,8 @@
                 </div>
               </div>
             </div>
-          </div><!-- /.hr-slide--container col-xl-10 -->
-        </div>
-      </div><!-- /.home-reviews -->
+          </div>
+      </div><!-- /.reviews-list -->
     <?php endif; ?>
 
     <div class="container">

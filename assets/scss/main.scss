@@ -2158,10 +2158,13 @@ header {
 }
 
 .reviews-list {
+  position: relative;
+  z-index: 4;
   .reviews--item-wrap {
     margin-bottom: 40px;
   }
   .home-reviews--item {
+    box-shadow: $base-box-shadow;
     .home-reviews--img {
       //
     }
@@ -3912,6 +3915,19 @@ article {
 
   text-align: center;
 }
+.hidden-galery-list {
+  position: absolute;
+  z-index: -1;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+
+  pointer-events: none;
+
+  opacity: 0;
+}
 
 .gallery--item-wrap {
   margin-bottom: 30px;
@@ -4244,7 +4260,7 @@ article {
   }
 }
 
-.rewiews-page,
+.reviews-page,
 .about-page {
   .article-heading {
     margin-bottom: 130px;
@@ -4368,7 +4384,11 @@ article {
     }
   }
 }
-
+.reviews-page {
+  .article-heading {
+    margin-bottom: 50px;
+  }
+}
 
 
 .services-content {

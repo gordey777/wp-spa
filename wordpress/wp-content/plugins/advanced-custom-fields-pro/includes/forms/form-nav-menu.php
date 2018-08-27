@@ -228,7 +228,7 @@ class acf_form_nav_menu {
 		
 		
 ?>
-<div id="tmpl-acf-menu-settings" style="display: none;">
+<script type="text/html" id="tmpl-acf-menu-settings">
 	<?php
 	
 	// data (always needed to save nav menu items)
@@ -263,7 +263,7 @@ class acf_form_nav_menu {
 	}
 	
 	?>
-</div>
+</script>
 <script type="text/javascript">
 (function($) {
 	

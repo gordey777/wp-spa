@@ -62,7 +62,7 @@
               </div><!-- /.packages--item -->
             <?php $i++; endwhile; endif; ?>
           </div><!-- /.col-xl-10 offset-1 -->
-
+<?php if(function_exists('the_ratings')) { the_ratings(); } ?>
           <?php if (get_field('aditional_content')) { ?>
             <h3 class="adc--title col-xl-8 offset-xl-2 col-lg-8 offset-lg-2"><?php the_field('additional_content_title'); ?><span></span></h3>
             <div class="article--content additional-content col-xl-8 offset-xl-2 col-lg-8 offset-lg-2">

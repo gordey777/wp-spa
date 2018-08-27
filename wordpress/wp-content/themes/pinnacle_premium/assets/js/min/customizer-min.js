@@ -1,1 +1,0 @@
-jQuery(document).ready(function($){$(".customize-control-switch .kt_switch").click(function(){$(this).hasClass("On")?($(this).parent().find("input:checkbox").attr("checked",!0),$(this).removeClass("On").addClass("Off")):($(this).parent().find("input:checkbox").attr("checked",!1),$(this).removeClass("Off").addClass("On"))})});

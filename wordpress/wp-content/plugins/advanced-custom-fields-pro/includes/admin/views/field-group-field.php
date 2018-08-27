@@ -68,6 +68,7 @@ $atts['class'] = str_replace('_', '-', $atts['class']);
 					'instructions'	=> __('This is the name which will appear on the EDIT page','acf'),
 					'name'			=> 'label',
 					'type'			=> 'text',
+					'required'		=> 1,
 					'class'			=> 'field-label'
 				), true);
 				
@@ -78,6 +79,7 @@ $atts['class'] = str_replace('_', '-', $atts['class']);
 					'instructions'	=> __('Single word, no spaces. Underscores and dashes allowed','acf'),
 					'name'			=> 'name',
 					'type'			=> 'text',
+					'required'		=> 1,
 					'class'			=> 'field-name'
 				), true);
 				
@@ -86,6 +88,7 @@ $atts['class'] = str_replace('_', '-', $atts['class']);
 				acf_render_field_setting($field, array(
 					'label'			=> __('Field Type','acf'),
 					'instructions'	=> '',
+					'required'		=> 1,
 					'type'			=> 'select',
 					'name'			=> 'type',
 					'choices' 		=> acf_get_field_types(),

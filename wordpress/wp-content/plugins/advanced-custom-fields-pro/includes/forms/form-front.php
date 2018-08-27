@@ -109,8 +109,7 @@ class acf_form_front {
 			'honeypot'				=> true,
 			'html_updated_message'	=> '<div id="message" class="updated"><p>%s</p></div>', // 5.5.10
 			'html_submit_button'	=> '<input type="submit" class="acf-button button button-primary button-large" value="%s" />', // 5.5.10
-			'html_submit_spinner'	=> '<span class="acf-spinner"></span>', // 5.5.10
-			'kses'					=> true // 5.6.5
+			'html_submit_spinner'	=> '<span class="acf-spinner"></span>' // 5.5.10
 		));
 		
 		$args['form_attributes'] = wp_parse_args( $args['form_attributes'], array(
@@ -360,34 +359,20 @@ class acf_form_front {
 	
 	function check_submit_form() {
 		
+		// bail ealry if form not submit
+		if( !isset($_POST['_acf_form']) ) return;
+		
+		
 		// verify nonce
 		if( !acf_verify_nonce('acf_form') ) return;
 		
-		
-		// bail ealry if form not submit
-		if( empty($_POST['_acf_form']) ) return;
-		
-		
-		// load form
-    	$form = json_decode( acf_decrypt($_POST['_acf_form']), true );
-		
-		
-		// bail ealry if form is corrupt
-    	if( empty($form) ) return;
-    	
-    	
-    	// kses
-    	if( $form['kses'] && isset($_POST['acf']) ) {
-	    	$_POST['acf'] = wp_kses_post_deep( $_POST['acf'] );
-    	}
-    	
 		
 		// validate data
 		acf_validate_save_post(true);
 		
 		
 		// submit
-		$this->submit_form( $form );
+		$this->submit_form();
 		
 	}
 	
@@ -405,9 +390,17 @@ class acf_form_front {
 	*  @return	n/a
 	*/
 	
-	function submit_form( $form ) {
+	function submit_form() {
 		
-		// filter
+		// vars
+    	$form = @json_decode(acf_decrypt($_POST['_acf_form']), true);
+    	
+    	
+    	// bail ealry if form is corrupt
+    	if( empty($form) ) return;
+    	
+    	
+    	// filter
     	$form = apply_filters('acf/pre_submit_form', $form);
     	
     	

@@ -7,9 +7,9 @@
   <?php if( is_singular('product')) { ?>
   <meta name="robots" content="noindex">
   <?php } ?>
-  <title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' :'; } ?> <?php bloginfo( 'name' ); ?></title>
+  <title><?php wp_title( '' ); ?></title>
 
-  <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
+  <link href="//www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
 
   <!-- icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/favicons/apple-touch-icon.png">
@@ -32,6 +32,15 @@
   <![endif]-->
   <!-- css + javascript -->
   <?php wp_head(); ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103828418-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-103828418-1');
+</script>
 
 </head>
 <body <?php body_class(); ?>>

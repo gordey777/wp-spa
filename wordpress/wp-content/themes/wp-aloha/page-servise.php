@@ -55,7 +55,7 @@
             <div class="container">
               <div class="row">
                 <div class="home-girls--content col-lg-7 offset-lg-5">
-                  <h3 class="home-girls--title"><?php the_field('how_it_works_title'); ?><span></span></h3>
+                  <h2 class="home-girls--title"><?php the_field('how_it_works_title'); ?><span></span></h2>
                   <div class="home-girls--content_wrap page-content services-content">
                     <?php the_field('how_it_works_content'); ?>
                   </div>
@@ -79,9 +79,10 @@
               <div class="container home-gift--img">
                 <div class="row">
                   <div class="home-gift--content col-lg-8">
-                    <h3 class="home-gift--title"><?php the_field('advantages_title'); ?><span></span></h3>
+                    <h2 class="home-gift--title"><?php the_field('advantages_title'); ?><span></span></h2>
                     <div class="page-content services-content">
-                      <?php the_field('advantages_content'); ?>
+                      <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+						<?php the_field('advantages_content'); ?>
                     </div>
                     <div class="services-content-more fa fa-chevron-down"></div>
                   </div><!-- home-gift--content  -->

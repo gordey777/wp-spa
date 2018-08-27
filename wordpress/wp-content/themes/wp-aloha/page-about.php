@@ -2,21 +2,20 @@
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
     <div class="article-single about-page">
-      <div class="container-fluid">
-        <div class="row">
-
           <?php if (get_field('header_image')) {
             $image = get_field('header_image');
             $style = 'style="background-image: url(' . $image['url'] .');"';
           } else {
             $style = '';
           }?>
-          <div class="article-heading col-xl-10 offset-1" <?php echo $style; ?>>
+      <div class="article-heading container" <?php echo $style; ?> >
+        <div class="row">
+          <div class="headind--wrap col-lg-10 offset-lg-1">
             <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
             <h1 class="article-title"><?php the_title(); ?></h1>
-          </div><!-- /.article-heading -->
+          </div>
         </div>
-      </div>
+      </div><!-- /.article-heading -->
 
       <div class="container">
         <div class="row">

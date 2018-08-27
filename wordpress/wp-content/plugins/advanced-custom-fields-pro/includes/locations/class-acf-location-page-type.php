@@ -66,7 +66,7 @@ class acf_location_page_type extends acf_location {
 	        
 	        
 	        // compare
-	        $result = ( $front_page === $post->ID );
+	        $match = ( $front_page === $post->ID );
 	        
         } elseif( $rule['value'] == 'posts_page') {
         	
@@ -75,7 +75,7 @@ class acf_location_page_type extends acf_location {
 	        
 	        
 	        // compare
-	        $result = ( $posts_page === $post->ID );
+	        $match = ( $posts_page === $post->ID );
 	        
         } elseif( $rule['value'] == 'top_level') {
         	
@@ -84,7 +84,7 @@ class acf_location_page_type extends acf_location {
         	
         	
         	// compare
-			$result = ( $page_parent == 0 );
+			$match = ( $page_parent == 0 );
 	            
         } elseif( $rule['value'] == 'parent' ) {
         	
@@ -98,7 +98,7 @@ class acf_location_page_type extends acf_location {
         	
 	        
 	        // compare
-	        $result = !empty( $children );
+	        $match = !empty( $children );
 	        
         } elseif( $rule['value'] == 'child') {
         	
@@ -107,21 +107,21 @@ class acf_location_page_type extends acf_location {
         	
 	        
 	        // compare
-			$result = ( $page_parent > 0 );
+			$match = ( $page_parent > 0 );
 	        
         }
         
         
         // reverse if 'not equal to'
-        if( $rule['operator'] == '!=' ) {
+        if( $rule['operator'] === '!=' ) {
 	        	
-        	$result = !$result;
+        	$match = !$match;
         
         }
         
         
         // return
-        return $result;
+        return $match;
         
 	}
 	

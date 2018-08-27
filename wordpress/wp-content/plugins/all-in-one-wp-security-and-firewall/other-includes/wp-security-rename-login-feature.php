@@ -249,7 +249,7 @@ do_action( 'login_header' );
     if ( ! $interim_login ): ?>
 	<p id="backtoblog"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php
 		/* translators: %s: site title */
-		printf( _x( '&larr; Back to %s', 'all-in-one-wp-security-and-firewall' ), get_bloginfo( 'title', 'display' ) );
+		printf( __( '&larr; Back to %s', 'all-in-one-wp-security-and-firewall' ), get_bloginfo( 'title', 'display' ) );
 	?></a></p>
 	<?php 
         if(function_exists('the_privacy_policy_link')){

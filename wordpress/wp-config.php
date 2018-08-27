@@ -1,29 +1,24 @@
 <?php
+define('WP_CACHE', true); // Added by WP Rocket
 /** Enable W3 Total Cache */
 
-define('DB_NAME', 'aloha-spa');
-define('DB_USER', 'user');
-define('DB_PASSWORD', 'user');
+$_SERVER['HTTPS'] = 'on';
+define('FORCE_SSL_ADMIN', true);
+define('FORCE_SSL_LOGIN', true);
+define( 'WP_MEMORY_LIMIT', '256M' );
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+       $_SERVER['HTTPS']='on';
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
-// define('DB_HOST', 'aloha.mysql.ukraine.com.ua');
+define('DB_NAME', 'aloha_spa');
+define('DB_USER', 'aloha_spa');
+define('DB_PASSWORD', 'Fynjybj201cgf');
+define('DB_HOST', 'aloha.mysql.ukraine.com.ua');
 
-/** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
+define('DB_COLLATE', 'utf8mb4_unicode_ci');
 
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+$table_prefix  = 'aloha_';
 
-/**#@+
- * Authentication Unique Keys and Salts.
- *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
- *
- * @since 2.6.0
- */
 define('AUTH_KEY',         'YQu^LML$f`iQ;B^BEde50Hg(OWGAl3}AOv*39]gxa.0!NXMj^YfE8v2R1b/yd;:9');
 define('SECURE_AUTH_KEY',  ':aNb=e}eoA?.YT hhyK#ti{x`Q^Y|:TIl~D?]zoX^7{=__iZD`(]W2T.y3F(BFw6');
 define('LOGGED_IN_KEY',    'iIGL01l<E{nDe=*0Vy5`ES)IN<RlLUkZj5Pb%$+,JGe/#I)%Pb{8]X%}8T`I:Du~');
@@ -33,32 +28,11 @@ define('SECURE_AUTH_SALT', '5Qv(A&t(/BL37=np;hL9k?;30QgJt @emYN)/ e[z@8uI!WN~ypU
 define('LOGGED_IN_SALT',   'ZnjY9e/GO4E,l[aK1} ZMcMb>~^`VkrDhZ!q4PP3N2XcrMhuTtWe7WsIu&n[#ba2');
 define('NONCE_SALT',       'wXyr!Pv/0HB+$S$3GJX?i1-nuWk&XZeDSwxxp5G$-sv|`z`n*`^dUIsNNhnm!W?F');
 
-/**#@-*/
 
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each
- * a unique prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix  = 'aloha_';
 
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * For information on other constants that can be used for debugging,
- * visit the Codex.
- *
- * @link https://codex.wordpress.org/Debugging_in_WordPress
- */
-define('FORCE_SSL_ADMIN', false);
 define('WP_DEBUG', false);
 define( 'UPLOADS', ''.'img' );
-
+//define('WPLANG', 'ru_RU');
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

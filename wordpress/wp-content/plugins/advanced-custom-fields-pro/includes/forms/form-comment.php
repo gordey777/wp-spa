@@ -240,7 +240,6 @@ class acf_form_comment {
 				'nonce'		=> 'comment' 
 			));
 			
-			echo '<div class="acf-comment-fields acf-fields -clear">';
 			
 			foreach( $field_groups as $field_group ) {
 				
@@ -249,8 +248,6 @@ class acf_form_comment {
 				acf_render_fields( $post_id, $fields, 'p', $field_group['instruction_placement'] );
 				
 			}
-			
-			echo '</div>';
 		
 		
 		// append
@@ -280,22 +277,20 @@ class acf_form_comment {
 	function save_comment( $comment_id ) {
 		
 		// bail early if not valid nonce
-		if( !acf_verify_nonce('comment') ) {
+		if( ! acf_verify_nonce('comment') ) {
+		
 			return $comment_id;
+			
 		}
-		
-		
-		// kses
-    	if( isset($_POST['acf']) ) {
-	    	$_POST['acf'] = wp_kses_post_deep( $_POST['acf'] );
-    	}
 		
 	    
 	    // validate and save
 	    if( acf_validate_save_post(true) ) {
-			acf_save_post( "comment_{$comment_id}" );
+	    
+			acf_save_post( "comment_{$comment_id}" );	
+			
 		}
-		
+				
 	}
 	
 	

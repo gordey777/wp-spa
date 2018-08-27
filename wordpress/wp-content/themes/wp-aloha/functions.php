@@ -66,7 +66,7 @@ function wpeHeaderScripts() {
     wp_deregister_script( 'jquery-form' );
 
     //  Load footer scripts (footer.php)
-    wp_register_script('wpeScripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.0', true);
+    wp_register_script('wpeScripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0.1', true);
     wp_enqueue_script('wpeScripts');
     wp_localize_script( 'wpeScripts', 'adminAjax', array(
       'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -74,41 +74,54 @@ function wpeHeaderScripts() {
       'posts_per_page' => get_option('posts_per_page')
     ));
 
+
+/*    add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+    function js_async_attr($tag){
+
+    # Do not add defer or async attribute to these scripts
+    $scripts_to_exclude = array('script1.js', 'script2.js', 'script3.js');
+
+    foreach($scripts_to_exclude as $exclude_script){
+     if(true == strpos($tag, $exclude_script ) )
+     return $tag;
+    }
+
+    # Defer or async all remaining scripts not excluded above
+
+
+    return str_replace( ' src', ' defer="defer" src', $tag );
+    }
+
+
+
+    // Remove query string from static files
+    function remove_cssjs_ver( $src ) {
+    if( strpos( $src, '?ver=' ) )
+    $src = remove_query_arg( 'ver', $src );
+    return $src;
+    }
+    add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
+    add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
+
+
+
+    // Move js and css to footer
+    function remove_head_scripts() {
+      remove_action( 'wp_head', 'wp_print_styles', 8);
+      remove_action('wp_head', 'wp_print_scripts');
+      remove_action('wp_head', 'wp_print_head_scripts', 9);
+      remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
+
+      add_action('wp_footer', 'wp_print_styles', 5);
+      add_action('wp_footer', 'wp_print_scripts', 5);
+      add_action('wp_footer', 'wp_enqueue_scripts', 5);
+      add_action('wp_footer', 'wp_print_head_scripts', 5);
+    }
+    add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );*/
+
   }
 }
-
-
-
-/*
-function add_defer_attribute($tag, $handle) {
-   // add script handles to the array below
-   $scripts_to_defer = array('jquery', 'jquery-migrate', 'modernizr', 'wpeScripts');
-
-   foreach($scripts_to_defer as $defer_script) {
-      if ($defer_script === $handle) {
-         return str_replace(' src', ' defer="defer" src', $tag);
-      }
-   }
-   return $tag;
-}
-add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);*/
-
-
-
-// Move js and css to footer
-function remove_head_scripts() {
-  remove_action( 'wp_head', 'wp_print_styles', 8);
-  remove_action('wp_head', 'wp_print_scripts');
-  remove_action('wp_head', 'wp_print_head_scripts', 9);
-  remove_action('wp_head', 'wp_enqueue_scripts', 1);
-
-
-  add_action('wp_footer', 'wp_print_styles', 5);
-  add_action('wp_footer', 'wp_print_scripts', 5);
-  add_action('wp_footer', 'wp_enqueue_scripts', 5);
-  add_action('wp_footer', 'wp_print_head_scripts', 5);
-}
-add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
 
 
 
@@ -1093,6 +1106,13 @@ function kama_reorder_comment_fields( $fields ){
 }
 
 
-
-
+//IMG REDIRECT
+add_action('template_redirect', 'template_redirect_attachment');
+function template_redirect_attachment() {
+global $post;
+// Перенаправляем на основную запись:
+if (is_attachment()) {
+wp_redirect(get_permalink($post->post_parent));
+}
+}
 ?>

@@ -61,11 +61,21 @@
       </div><!-- /.container-fluid -->
     </div><!-- /.article-single -->
 
-    <?php include(TEMPLATEPATH.'/include-recommend.php'); ?>
 
 
 
-
+      <div class="container">
+        <div class="row">
+          <article id="post-<?php the_ID(); ?>" <?php post_class('about-page--content col-xl-8 offset-xl-2 col-lg-10 offset-lg-1'); ?>>
+            <div class="article--content page-content">
+              <?php the_content(); ?>
+            </div><!-- /.article--content -->
+          </article>
+        </div>
+      </div><!-- container -->
+      <div class="container reviews-btn-wrap">
+        <a href="#commentform" class="btn btn-blue-half reviews-btn"><?php the_field('reviews_btn'); ?></a>
+      </div>
           <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-10 offset-lg-1'); ?>>
             <div class=" courses-page--content">
                 <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
